@@ -7,44 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B35A26FD1908217B003ECBD0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B35A26FC1908217B003ECBD0 /* main.cpp */; };
-		B35A26FF1908217B003ECBD0 /* Solitaire_Solver.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B35A26FE1908217B003ECBD0 /* Solitaire_Solver.1 */; };
+		B3891ECC1916D791008E4A8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D489471912A60400B6425B /* Foundation.framework */; };
+		B3891ED71916D7DB008E4A8B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA4231913FB6100A8691C /* Card.m */; };
+		B3891ED81916D7DE008E4A8B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA441191400BA00A8691C /* Deck.m */; };
+		B3891ED91916D7E1008E4A8B /* Klondike.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA43E191400A000A8691C /* Klondike.m */; };
+		B3891EDA1916D7E7008E4A8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA43B1914005C00A8691C /* main.m */; };
+		B3891EDB1916D7ED008E4A8B /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA4261913FB6100A8691C /* Move.m */; };
+		B3891EDC1916D7F1008E4A8B /* Moves.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA4391913FBB000A8691C /* Moves.m */; };
+		B3891EDD1916D7F5008E4A8B /* MovesAvailable.m in Sources */ = {isa = PBXBuildFile; fileRef = B3891EC51916D574008E4A8B /* MovesAvailable.m */; };
+		B3891EDE1916D7F7008E4A8B /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA42C1913FB6100A8691C /* Stack.m */; };
+		B3891EDF1916D7FA008E4A8B /* Stacks.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EA44419141C4400A8691C /* Stacks.m */; };
+		B3891EE219193324008E4A8B /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = B3891EE119193324008E4A8B /* GameState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B35A26F71908217B003ECBD0 /* CopyFiles */ = {
+		B3891EC91916D791008E4A8B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				B35A26FF1908217B003ECBD0 /* Solitaire_Solver.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B35A26F91908217B003ECBD0 /* Solitaire-Solver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Solitaire-Solver"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B35A26FC1908217B003ECBD0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B35A26FE1908217B003ECBD0 /* Solitaire_Solver.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Solitaire_Solver.1; sourceTree = "<group>"; };
+		B33EA40A1913F9CF00A8691C /* SolitaireSolver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SolitaireSolver-Prefix.pch"; path = "../Solitaire-Solver/SolitaireSolver-Prefix.pch"; sourceTree = "<group>"; };
+		B33EA40B1913F9CF00A8691C /* SolitaireSolver.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = SolitaireSolver.1; path = "../Solitaire-Solver/SolitaireSolver.1"; sourceTree = "<group>"; };
+		B33EA4221913FB6100A8691C /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = "Solitaire-Solver/Card.h"; sourceTree = SOURCE_ROOT; };
+		B33EA4231913FB6100A8691C /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = "Solitaire-Solver/Card.m"; sourceTree = SOURCE_ROOT; };
+		B33EA4251913FB6100A8691C /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
+		B33EA4261913FB6100A8691C /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Move.m; path = "Solitaire-Solver/Move.m"; sourceTree = SOURCE_ROOT; };
+		B33EA42B1913FB6100A8691C /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Stack.h; path = "Solitaire-Solver/Stack.h"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B33EA42C1913FB6100A8691C /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Stack.m; path = "Solitaire-Solver/Stack.m"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B33EA4381913FBB000A8691C /* Moves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Moves.h; path = "Solitaire-Solver/Moves.h"; sourceTree = SOURCE_ROOT; };
+		B33EA4391913FBB000A8691C /* Moves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Moves.m; path = "Solitaire-Solver/Moves.m"; sourceTree = SOURCE_ROOT; };
+		B33EA43B1914005C00A8691C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B33EA43D191400A000A8691C /* Klondike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Klondike.h; path = "Solitaire-Solver/Klondike.h"; sourceTree = SOURCE_ROOT; };
+		B33EA43E191400A000A8691C /* Klondike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Klondike.m; path = "Solitaire-Solver/Klondike.m"; sourceTree = SOURCE_ROOT; };
+		B33EA440191400BA00A8691C /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = "Solitaire-Solver/Deck.h"; sourceTree = SOURCE_ROOT; };
+		B33EA441191400BA00A8691C /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = "Solitaire-Solver/Deck.m"; sourceTree = SOURCE_ROOT; };
+		B33EA44319141C4400A8691C /* Stacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Stacks.h; path = "Solitaire-Solver/Stacks.h"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B33EA44419141C4400A8691C /* Stacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Stacks.m; path = "Solitaire-Solver/Stacks.m"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B3891EC41916D574008E4A8B /* MovesAvailable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovesAvailable.h; sourceTree = "<group>"; };
+		B3891EC51916D574008E4A8B /* MovesAvailable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovesAvailable.m; sourceTree = "<group>"; };
+		B3891ECB1916D791008E4A8B /* Solitaire-Solver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Solitaire-Solver"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3891EE019193324008E4A8B /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		B3891EE119193324008E4A8B /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
+		B3D489471912A60400B6425B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B35A26F61908217B003ECBD0 /* Frameworks */ = {
+		B3891EC81916D791008E4A8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3891ECC1916D791008E4A8B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B33EA4061913F9CF00A8691C /* Solitaire-Solver resources */ = {
+			isa = PBXGroup;
+			children = (
+				B33EA40B1913F9CF00A8691C /* SolitaireSolver.1 */,
+				B33EA4091913F9CF00A8691C /* Supporting Files */,
+			);
+			name = "Solitaire-Solver resources";
+			path = newKlondikeSolver;
+			sourceTree = "<group>";
+		};
+		B33EA4091913F9CF00A8691C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B33EA40A1913F9CF00A8691C /* SolitaireSolver-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B35A26F01908217B003ECBD0 = {
 			isa = PBXGroup;
 			children = (
 				B35A26FB1908217B003ECBD0 /* Solitaire-Solver */,
+				B33EA4061913F9CF00A8691C /* Solitaire-Solver resources */,
+				B3D489461912A60400B6425B /* Frameworks */,
 				B35A26FA1908217B003ECBD0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,7 +101,7 @@
 		B35A26FA1908217B003ECBD0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B35A26F91908217B003ECBD0 /* Solitaire-Solver */,
+				B3891ECB1916D791008E4A8B /* Solitaire-Solver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,22 +109,47 @@
 		B35A26FB1908217B003ECBD0 /* Solitaire-Solver */ = {
 			isa = PBXGroup;
 			children = (
-				B35A26FC1908217B003ECBD0 /* main.cpp */,
-				B35A26FE1908217B003ECBD0 /* Solitaire_Solver.1 */,
+				B33EA4221913FB6100A8691C /* Card.h */,
+				B33EA4231913FB6100A8691C /* Card.m */,
+				B33EA440191400BA00A8691C /* Deck.h */,
+				B33EA441191400BA00A8691C /* Deck.m */,
+				B3891EE019193324008E4A8B /* GameState.h */,
+				B3891EE119193324008E4A8B /* GameState.m */,
+				B33EA43D191400A000A8691C /* Klondike.h */,
+				B33EA43E191400A000A8691C /* Klondike.m */,
+				B33EA43B1914005C00A8691C /* main.m */,
+				B33EA4251913FB6100A8691C /* Move.h */,
+				B33EA4261913FB6100A8691C /* Move.m */,
+				B33EA4381913FBB000A8691C /* Moves.h */,
+				B33EA4391913FBB000A8691C /* Moves.m */,
+				B3891EC41916D574008E4A8B /* MovesAvailable.h */,
+				B3891EC51916D574008E4A8B /* MovesAvailable.m */,
+				B33EA42B1913FB6100A8691C /* Stack.h */,
+				B33EA42C1913FB6100A8691C /* Stack.m */,
+				B33EA44319141C4400A8691C /* Stacks.h */,
+				B33EA44419141C4400A8691C /* Stacks.m */,
 			);
 			path = "Solitaire-Solver";
+			sourceTree = "<group>";
+		};
+		B3D489461912A60400B6425B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3D489471912A60400B6425B /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B35A26F81908217B003ECBD0 /* Solitaire-Solver */ = {
+		B3891ECA1916D791008E4A8B /* Solitaire-Solver */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B35A27021908217B003ECBD0 /* Build configuration list for PBXNativeTarget "Solitaire-Solver" */;
+			buildConfigurationList = B3891ED41916D791008E4A8B /* Build configuration list for PBXNativeTarget "Solitaire-Solver" */;
 			buildPhases = (
-				B35A26F51908217B003ECBD0 /* Sources */,
-				B35A26F61908217B003ECBD0 /* Frameworks */,
-				B35A26F71908217B003ECBD0 /* CopyFiles */,
+				B3891EC71916D791008E4A8B /* Sources */,
+				B3891EC81916D791008E4A8B /* Frameworks */,
+				B3891EC91916D791008E4A8B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -83,7 +157,7 @@
 			);
 			name = "Solitaire-Solver";
 			productName = "Solitaire-Solver";
-			productReference = B35A26F91908217B003ECBD0 /* Solitaire-Solver */;
+			productReference = B3891ECB1916D791008E4A8B /* Solitaire-Solver */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -107,17 +181,26 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B35A26F81908217B003ECBD0 /* Solitaire-Solver */,
+				B3891ECA1916D791008E4A8B /* Solitaire-Solver */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B35A26F51908217B003ECBD0 /* Sources */ = {
+		B3891EC71916D791008E4A8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B35A26FD1908217B003ECBD0 /* main.cpp in Sources */,
+				B3891EDE1916D7F7008E4A8B /* Stack.m in Sources */,
+				B3891EDC1916D7F1008E4A8B /* Moves.m in Sources */,
+				B3891EDB1916D7ED008E4A8B /* Move.m in Sources */,
+				B3891EDF1916D7FA008E4A8B /* Stacks.m in Sources */,
+				B3891ED81916D7DE008E4A8B /* Deck.m in Sources */,
+				B3891ED71916D7DB008E4A8B /* Card.m in Sources */,
+				B3891EDA1916D7E7008E4A8B /* main.m in Sources */,
+				B3891ED91916D7E1008E4A8B /* Klondike.m in Sources */,
+				B3891EDD1916D7F5008E4A8B /* MovesAvailable.m in Sources */,
+				B3891EE219193324008E4A8B /* GameState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +266,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -194,16 +278,24 @@
 			};
 			name = Release;
 		};
-		B35A27031908217B003ECBD0 /* Debug */ = {
+		B3891ED51916D791008E4A8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Solitaire-Solver/Solitaire-Solver-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		B35A27041908217B003ECBD0 /* Release */ = {
+		B3891ED61916D791008E4A8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Solitaire-Solver/Solitaire-Solver-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -220,11 +312,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B35A27021908217B003ECBD0 /* Build configuration list for PBXNativeTarget "Solitaire-Solver" */ = {
+		B3891ED41916D791008E4A8B /* Build configuration list for PBXNativeTarget "Solitaire-Solver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B35A27031908217B003ECBD0 /* Debug */,
-				B35A27041908217B003ECBD0 /* Release */,
+				B3891ED51916D791008E4A8B /* Debug */,
+				B3891ED61916D791008E4A8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
