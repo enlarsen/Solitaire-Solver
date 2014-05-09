@@ -33,8 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B33EA40A1913F9CF00A8691C /* SolitaireSolver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SolitaireSolver-Prefix.pch"; path = "../Solitaire-Solver/SolitaireSolver-Prefix.pch"; sourceTree = "<group>"; };
-		B33EA40B1913F9CF00A8691C /* SolitaireSolver.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = SolitaireSolver.1; path = "../Solitaire-Solver/SolitaireSolver.1"; sourceTree = "<group>"; };
+		B33EA40A1913F9CF00A8691C /* Solitaire-Solver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Solitaire-Solver-Prefix.pch"; path = "Solitaire-Solver/Solitaire-Solver-Prefix.pch"; sourceTree = "<group>"; };
+		B33EA40B1913F9CF00A8691C /* SolitaireSolver.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = SolitaireSolver.1; path = "Solitaire-Solver/SolitaireSolver.1"; sourceTree = "<group>"; };
 		B33EA4221913FB6100A8691C /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = "Solitaire-Solver/Card.h"; sourceTree = SOURCE_ROOT; };
 		B33EA4231913FB6100A8691C /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = "Solitaire-Solver/Card.m"; sourceTree = SOURCE_ROOT; };
 		B33EA4251913FB6100A8691C /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		B33EA4091913F9CF00A8691C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B33EA40A1913F9CF00A8691C /* SolitaireSolver-Prefix.pch */,
+				B33EA40A1913F9CF00A8691C /* Solitaire-Solver-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -319,6 +319,7 @@
 				B3891ED61916D791008E4A8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
