@@ -16,33 +16,19 @@
 
 @implementation GameState
 
-- (NSMutableArray *)parents
+// key=move hash, value=board hash
+- (NSMutableDictionary *)moves
 {
-    if(!_parents)
+    if(!_moves)
     {
-        _parents = [[NSMutableArray alloc] init];
+        _moves = [[NSMutableDictionary alloc] init];
     }
-    return _parents;
+    return _moves;
 }
 
-- (NSMutableArray *)children
+- (NSString *)description
 {
-    if(!_children)
-    {
-        _children = [[NSMutableArray alloc] init];
-    }
-    return _children;
-}
-
-
-- (instancetype)init
-{
-    self = [super init];
-    if(self)
-    {
-        self.timesSeen = 0;
-    }
-    return self;
+    return [[NSString stringWithFormat:@"%@", self.moves] copy];
 }
 
 @end

@@ -10,6 +10,10 @@
 
 @interface Klondike : NSObject
 
+@property (nonatomic, assign) int states;
+
 - (void)play;
-- (int)playNGames:(int)numberOfGames;
+//- (int)playNGames:(int)numberOfGames;
+- (int)playNGamesCompletely:(int)numberOfGames;
+
 @end

@@ -35,7 +35,7 @@
 
 - (void)add:(Move *)move
 {
-    [self.moves addObject:[move copy]];
+    [self.moves addObject:move];
 }
 
 - (void)addMoves:(Moves *)moves

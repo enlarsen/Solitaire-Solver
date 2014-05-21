@@ -33,6 +33,9 @@ enum Piles {
 @property (nonatomic, readonly) int count;
 @property (nonatomic, readonly) int foundationValue;
 @property (nonatomic, readonly) int maxFoundationValue;
+@property (nonatomic, strong) Moves *moveHistory;
+@property (nonatomic, strong) NSMutableDictionary *gameStateGraph;
+
 
 - (Stack *)objectAtIndexedSubscript:(NSUInteger)index;
 - (void)setObject:(Stack *)stack atIndexedSubscript:(NSUInteger)index;
@@ -51,8 +54,12 @@ enum Piles {
 - (Moves *)findInterTableauMoves;
 - (Moves *)findFoundationMoves;
 
+- (BOOL)takeNextMoveOrUndo:(Moves *)moves;
+
 - (BOOL)isGameWon;
 
 - (void)resetTalon;
+
+- (void)resetStacks;
 
 @end

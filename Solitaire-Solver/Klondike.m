@@ -19,9 +19,6 @@
 
 @property (nonatomic, strong) Deck *deck;
 @property (nonatomic, strong) Stacks *stacks;
-@property (nonatomic, strong) Moves *moveHistory;
-@property (nonatomic, strong) MovesAvailable *movesAvailable;
-@property (nonatomic, strong) NSMutableDictionary *gameStateGraph;
 @property (nonatomic) long long gamesPlayed;
 @property (nonatomic) int gamesWon;
 @property (nonatomic) int drawCount;
@@ -29,6 +26,8 @@
 @end
 
 @implementation Klondike
+
+#pragma mark - Properties
 
 - (Deck *)deck
 {
@@ -48,43 +47,16 @@
     return _stacks;
 }
 
-- (Moves *)moveHistory
-{
-    if(!_moveHistory)
-    {
-        _moveHistory = [[Moves alloc] init];
 
-    }
-    return _moveHistory;
-}
 
-- (MovesAvailable *)movesAvailable
-{
-    if(!_movesAvailable)
-    {
-        _movesAvailable = [[MovesAvailable alloc] initWithStacks:self.stacks];
-    }
-    return _movesAvailable;
-}
-
-- (NSMutableDictionary *)gameStateGraph
-{
-    if(!_gameStateGraph)
-    {
-        _gameStateGraph = [[NSMutableDictionary alloc] init];
-    }
-    return _gameStateGraph;
-}
 
 - (void)resetGame
 {
     self.drawCount = 1;
     _stacks = nil;
     _deck = nil;
-    _moveHistory = nil;
-    _movesAvailable = nil;
-    _gameStateGraph = nil;
 
+    [self.stacks resetStacks];
     [self.stacks dealCards:self.deck];
 
 }
@@ -113,7 +85,6 @@
                 for(Move *move in moves)
                 {
                     [self.stacks move:move];
-                    [self.moveHistory add:move];
                 }
             }
 
@@ -122,7 +93,6 @@
             {
                 int moveIndex = arc4random_uniform(moves.count);
                 [self.stacks move:moves[moveIndex]];
-                [self.moveHistory add:moves[moveIndex]];
             }
 
             //            moves = [self.stacks findFoundationToTableauMoves];
@@ -138,11 +108,10 @@
             {
                 int moveIndex = arc4random_uniform(moves.count);
                 [self.stacks move:moves[moveIndex]];
-                [self.moveHistory add:moves[moveIndex]];
             }
             else
             {
-                [self.stacks[STOCK] flip];
+//                [self.stacks[STOCK] flipTopCard];
             }
             if(self.stacks[STOCK].upSize == 0)
             {
@@ -151,13 +120,13 @@
             passes++;
             //        NSLog(@"Total moves: %d", self.moveHistory.count);
             //        NSLog(@"Talon up size: %d", self.stacks[STOCK].upSize);
-            if(self.moveHistory.count > 300)
+ //           if(self.moveHistory.count > 300)
             {
                 //                NSLog(@"Tried 1000 moves, unwinnable. Foundation value: %d",
                 //                      [self.stacks foundationValue]);
                 [self resetGame];
             }
-            else
+ //           else
             {
                 if(passes > 300)
                 {
@@ -273,7 +242,7 @@
     return wins;
 } */
 
-
+/*
 - (int)playNGames:(int)numberOfGames
 {
     int wins = 0;
@@ -298,8 +267,9 @@
             {
                 int moveIndex = arc4random_uniform(moves.count);
 
+                [self addGameState:moves[moveIndex]];
+
                 [self.stacks move:moves[moveIndex]];
-                [self addGameState];
                 [self.moveHistory add:moves[moveIndex]];
             }
             else
@@ -343,28 +313,70 @@
     }
  //   NSLog(@"Maximum foundation value: %d", maxFoundation);
     return wins;
-}
+} */
 
-
-- (void)addGameState
+- (int)playNGamesCompletely:(int)numberOfGames
 {
-    NSString *hash = self.stacks.gameBoardHashKey;
-    NSNumber *visitsNumber = self.gameStateGraph[hash];
-    int visits;
+    int wins = 0;
+    Moves *moves;
+    int maxFoundation = 0;
+    self.states = 0;
 
-    if(visits)
+
+    for(int i = 0; i < numberOfGames; i++)
     {
-        visits = [visitsNumber intValue];
-        visits++;
-    }
-    else
-    {
-        visits = 0;
+        [self resetGame];
 
-    }
-    self.gameStateGraph[hash] = [NSNumber numberWithInt:visits];
+        BOOL done = NO;
 
+        while(![self.stacks isGameWon] && !done)
+        {
+
+            @autoreleasepool
+            {
+
+                moves = [self.stacks findFoundationMoves];
+                [moves addMoves:[self.stacks findInterTableauMoves]];
+                [moves addMoves:[self.stacks findFoundationToTableauMoves]];
+                [moves addMoves:[self.stacks findTalonMoves]];
+
+                if(moves.count)
+                {
+                    done = [self.stacks takeNextMoveOrUndo:moves];
+                    self.states++;
+                }
+                else
+                {
+                    // No moves, give up
+                    break;
+                }
+                if(self.stacks.gameStateGraph.count > 2500)
+                {
+                    break;
+                }
+            }
+
+        }
+        if([self.stacks isGameWon])
+        {
+            wins++;
+        }
+
+        //        NSLog(@"%@", [self.stacks description]);
+        if(maxFoundation < [self.stacks maxFoundationValue])
+        {
+            maxFoundation = [self.stacks maxFoundationValue];
+        }
+        // passes, maxFoundation, #gamestates, maxgamestatesvisitcount, #moves
+        //        printf("%d,%d,%lu,%d,%d\n", passes, [self.stacks maxFoundationValue],
+        //              (unsigned long)self.gameStateGraph.count, maxGameStateVisitCount, self.moveHistory.count);
+        
+    }
+    //   NSLog(@"Maximum foundation value: %d", maxFoundation);
+    return wins;
 }
+
+
 
 
 @end

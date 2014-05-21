@@ -10,11 +10,7 @@
 
 @interface GameState : NSObject
 
-@property (strong, nonatomic) NSMutableArray *parents; // of NSString hash
-@property (strong, nonatomic) NSMutableArray *children; // of NSString hash
+@property (strong, nonatomic) NSMutableDictionary *moves; // key: move hash, value: board hash
 
-@property (nonatomic) int timesSeen;
-
-- (instancetype)init;
 
 @end

@@ -7,22 +7,26 @@
 //
 
 #import "Move.h"
+#import "Card.h"
 
 @implementation Move
 
 - (instancetype)initWithMoveFrom:(unsigned char)from to:(unsigned char)to
                        withCount:(unsigned char)count
 {
-    self = [self init];
-    self.from = from;
-    self.to = to;
-    self.count = count;
-    self.card = nil;
-
+    self = [super init];
+    if(self)
+    {
+        self.from = from;
+        self.to = to;
+        self.count = count;
+        self.card = nil;
+        self.flipped = NO;
+    }
     return self;
 }
 
-- (instancetype)initWithMoveFrom:(unsigned char)from to:(unsigned char)to withChard:(Card *)card
+- (instancetype)initWithMoveFrom:(unsigned char)from to:(unsigned char)to withCard:(Card *)card
 {
     self = [self initWithMoveFrom:from to:to withCount:1];
     self.card = card;
@@ -35,6 +39,7 @@
     self.from = from;
     self.to = to;
     self.count = count;
+    self.flipped = NO;
     self.card = nil;
 }
 
@@ -44,19 +49,25 @@
     self.card = card;
 }
 
-- (id)copyWithZone:(NSZone *)zone
+- (NSString *)moveHash
 {
-    id copy = [[[self class] alloc] init];
-
-    if(copy)
-    {
-        ((Move *)copy).card = self.card;
-        ((Move *)copy).from = self.from;
-        ((Move *)copy).to = self.to;
-        ((Move *)copy).count = self.count;
-    }
-    return copy;
+    return [[NSString stringWithFormat:@"%0.2d%0.2d%0.2d%0.2d",
+            self.from, self.to, self.count, self.card.value] copy];
 }
+
+//- (id)copyWithZone:(NSZone *)zone
+//{
+//    Move *copy = [[[self class] allocWithZone:zone] init];
+//
+//    if(copy)
+//    {
+//        ((Move *)copy).card = self.card;
+//        ((Move *)copy).from = self.from;
+//        ((Move *)copy).to = self.to;
+//        ((Move *)copy).count = self.count;
+//    }
+//    return copy;
+//}
 
 - (NSString *)description
 {

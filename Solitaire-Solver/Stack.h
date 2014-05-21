@@ -16,12 +16,14 @@
 
 - (void)addDown:(Card *)card;
 - (void)addUp:(Card *)card;
-- (void)flip;
+//- (void)flipTopCarda;
 - (void)move:(Stack *)to;
 - (void)move:(Stack *)to withCount:(int)count;
 - (void)move:(Stack *)to withCard:(Card *)card;
-- (void)undoMove:(Stack *)from;
-- (void)undoMove:(Stack *)from withCount:(int)count;
+- (void)moveOneCardUpToDown;
+- (void)moveOneCardDownToUp;
+- (void)undoMove:(Stack *)from flipped:(BOOL)flipped;
+- (void)undoMove:(Stack *)from withCount:(int)count flipped:(BOOL)flipped;
 - (void)reset;
 - (int)size;
 - (int)downSize;

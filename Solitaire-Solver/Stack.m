@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) NSMutableArray *down; // of Card
 @property (nonatomic, strong) NSMutableArray *up; // of Card;
-@property (nonatomic) int previousUpSize; // used for undoing the move
 
 @end
 
@@ -48,23 +47,49 @@
     [self.up addObject:card];
 }
 
-- (void)flip
+- (void)moveOneCardDownToUp
 {
-    if(self.size == 0)
-    {
-        return;
-    }
-    if(self.up.count > 0)
-    {
-        [self.down addObject:[self.up lastObject]];
-        [self.up removeLastObject];
-    }
-    else
+    if(self.down.count > 0)
     {
         [self.up addObject:[self.down lastObject]];
         [self.down removeLastObject];
     }
 }
+
+- (void)moveOneCardUpToDown
+{
+    if(self.up.count > 0)
+    {
+        [self.down addObject:[self.up lastObject]];
+        [self.up removeLastObject];
+    }
+}
+
+// Either flips up the last card in the down stack or
+// flips down the top up (and only) up card.
+//- (void)flipTopCarda
+//{
+//    if(self.size == 0 || self.up.count > 1)
+//    {
+//        self.flipOnUndo = NO;
+//        return;
+//    }
+//    if(self.up.count == 1)
+//    {
+//        self.flipOnUndo = YES;
+//        [self.down addObject:[self.up lastObject]];
+//        [self.up removeLastObject];
+//        return;
+//
+//    }
+//    if(self.down.count > 0)
+//    {
+//        self.flipOnUndo = YES;
+//        [self.up addObject:[self.down lastObject]];
+//        [self.down removeLastObject];
+//    }
+//}
+
 
 - (void)moveDownToUp
 {
@@ -75,19 +100,30 @@
     }
 }
 
-- (void)move:(Stack *)to
+
+
+// Should flip the card if necessary
+- (Card *)removeTopCard
 {
-    [to addUp:[self.up lastObject]];
-    [self.up removeLastObject];
-    self.previousUpSize = self.upSize; // Save this state in case of an undo
-    if(self.upSize == 0)
-    {
-        [self flip];
-    }
+    return nil;
 }
 
-- (void)move:(Stack *)to withCount:(int)count
+- (void)addCardToTop:(Card *)card
 {
+
+}
+
+// Common routine that handles all of the moving of cards stack to stack
+
+- (void)moveOrUndoMove:(Stack *)to
+             withCount:(int)count
+              undoMove:(BOOL)undoMove
+                fliped:(BOOL)flipped
+{
+    if(undoMove && flipped)
+    {
+        [to moveOneCardUpToDown]; // Note that this is the to stack not the from stack
+    }
     if(self.size == 0)
     {
         return;
@@ -96,14 +132,42 @@
     {
         [to addUp:self.up[i]];
     }
-    [self.up removeObjectsInRange:NSMakeRange(self.up.count - count, count)];
-    self.previousUpSize = self.upSize; // Save this state in case of an undo
-    if(self.upSize == 0)
+    if(self.up.count - count > self.up.count)
     {
-        [self flip];
+        NSLog(@"Out of range!");
+        return;
+    }
+    if(count > self.up.count)
+    {
+        NSLog(@"Out of range!");
+        return;
+    }
+    [self.up removeObjectsInRange:NSMakeRange(self.up.count - count, count)];
+    if(!undoMove && self.upSize == 0)
+    {
+        [self moveOneCardDownToUp];
     }
 
 }
+
+- (void)move:(Stack *)to
+{
+    [self moveOrUndoMove:to withCount:1 undoMove:NO fliped:NO];
+    //    [to addUp:[self.up lastObject]];
+    //    [self.up removeLastObject];
+    //    if(to != self)
+    //    {
+    //        [self flipTopCard];
+    //    }
+}
+
+- (void)move:(Stack *)to withCount:(int)count
+{
+    [self moveOrUndoMove:to withCount:count undoMove:NO fliped:NO];
+}
+
+// This method exists to allow transfering any card from the talon pile without
+// flipping. Undo doesn't work here, though.
 
 - (void)move:(Stack *)to withCard:(Card *)card
 {
@@ -111,28 +175,20 @@
 
     if(index == NSNotFound)
     {
-        NSLog(@"Could not find card in stack from move:to:withCard");
+        NSLog(@"Could not find card in stack from %s", __PRETTY_FUNCTION__);
     }
     [to addUp:card];
     [self.up removeObjectAtIndex:index];
 }
 
-- (void)undoMove:(Stack *)from
+- (void)undoMove:(Stack *)to flipped:(BOOL)flipped
 {
-    if(self.previousUpSize == 0)
-    {
-        [self flip];
-    }
-    [from move:self];
+    [self moveOrUndoMove:to withCount:1 undoMove:YES fliped:flipped];
 }
 
-- (void)undoMove:(Stack *)from withCount:(int)count
+- (void)undoMove:(Stack *)to withCount:(int)count flipped:(BOOL)flipped
 {
-    if(self.previousUpSize == 0)
-    {
-        [self flip];
-    }
-    [from move:self withCount:count];
+    [self moveOrUndoMove:to withCount:count undoMove:YES fliped:flipped];
 }
 
 - (void)reset
@@ -184,8 +240,14 @@
     {
         [string appendFormat:@"%0.2d", ((Card *)self.up[i]).value];
     }
-
-    return [string copy];
+    if([string isEqualToString:@""])
+    {
+        return @"-";
+    }
+    else
+    {
+        return string;
+    }
 }
 
 - (NSString *)debugDescription
