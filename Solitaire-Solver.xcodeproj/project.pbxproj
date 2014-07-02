@@ -56,6 +56,7 @@
 		B3891EE019193324008E4A8B /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		B3891EE119193324008E4A8B /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
 		B3D489471912A60400B6425B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B3EB961419645C2200AD4EF9 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +119,7 @@
 				B33EA43D191400A000A8691C /* Klondike.h */,
 				B33EA43E191400A000A8691C /* Klondike.m */,
 				B33EA43B1914005C00A8691C /* main.m */,
+				B3EB961419645C2200AD4EF9 /* readme.md */,
 				B33EA4251913FB6100A8691C /* Move.h */,
 				B33EA4261913FB6100A8691C /* Move.m */,
 				B33EA4381913FBB000A8691C /* Moves.h */,
